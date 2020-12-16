@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container mt-4">
+		<div class="columns is-mobile">
+			<div class="column">
+				<h1 class="title">Blog Articles</h1>
+				<a href="/articles/new" class="button is-success">New Article</a>
+
+				<% articles.forEach(article => { %>
+				<div class="mt-4 card">
+					<div class="card-header">
+						<p class="card-header-title">
+							<%= article.title %>
+						</p>
+					</div>
+					<div class="card-content">
+						<div class=content>
+							<%= article.description %>
+							<p class="has-text-grey has-background-warning-light">
+								<%= article.createdAt.toLocaleDateString() %>
+							</p>
+						</div>
+						</div>
+					<footer class="card-footer">
+						<div class="card-footer-item is-info">
+							<a href="/articles/<%= article.slug %>" class="button is-info" type="button" name="button">
+								Read More
+							</a>
+						</div>
+						<div class="card-footer-item is-primary">
+							<a href="/articles/edit/<%= article.id %>" class="button is-primary" type="button" name="button">
+								Edit
+							</a>
+						</div>
+						<div class="card-footer-item is-danger">
+							<form action="/articles/<%= article.id %>?_method=DELETE" method="POST">
+								<button class="button is-danger" type="submit">
+									Delete
+								</button>
+							</form>
+						</div>
+					</footer>
+				</div> <% }) %>
+		</div>
+	</div> %>
+</body>
+</html>

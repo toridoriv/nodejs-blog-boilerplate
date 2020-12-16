@@ -1,0 +1,28 @@
+<h1 class="title">New Article</h1>
+<form action="/articles" method="POST" class="form">
+	<div class="field">
+		<label class="label" for="title">Title</label>
+		<div class="control">
+			<input required type="text" class="input" name="title" id="title" value="<%= article.title %>">
+		</div>
+	</div>
+	<div class="field">
+		<label class="label" for="description">Description</label>
+		<div class="control">
+			<textarea class="textarea" name="description" id="description"><%= article.description %></textarea>
+		</div>
+	</div>
+	<div class="field">
+		<label class="label" for="markdown">Markdown</label>
+		<div class="control">
+			<textarea class="textarea" name="markdown" id="markdown"><%= article.markdown %></textarea>
+		</div>
+	</div>
+	<div class="field">
+		<div class="buttons">
+			<button class="button is-success" type="submit">Save</button>
+			<a class="button is-danger is-outlined" href="/">Cancel</a>
+		</div>
+	</div>
+</form>
+</div>
